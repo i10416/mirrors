@@ -1,0 +1,20 @@
+[package]
+name = "mirrors"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "Macros to extract product types and sum types information using reflection"
+
+[lib]
+proc-macro = true
+
+[profile.dev]
+opt-level = 0
+
+[profile.release]
+opt-level = 3
+
+[dependencies]
+mirrors_internal = { path = "../mirrors_internal" }

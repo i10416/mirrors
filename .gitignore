@@ -1,0 +1,18 @@
+# Rust
+/target
+
+# OS Specific
+## Mac OS
+.DS_Store
+
+# Editors
+## VS Code
+.vscode
+## ignore vim temp files
+*~
+*.swp
+*.swo
+
+# Misc
+*.log
+

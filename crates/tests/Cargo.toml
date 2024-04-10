@@ -1,0 +1,19 @@
+[package]
+name = "tests"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+
+[dev-dependencies]
+mirrors = { path = "../mirrors" }
+
+[[test]]
+name = "mirrors"
+path = "src/lib.rs"
+
+
+[profile.dev]
+opt-level = 0
+
+[profile.release]
+opt-level = 3
