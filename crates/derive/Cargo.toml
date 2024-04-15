@@ -1,11 +1,14 @@
 [package]
-name = "mirrors_internal"
+name = "mirrors_derive"
 version.workspace = true
 edition.workspace = true
 rust-version.workspace = true
 authors.workspace = true
 license.workspace = true
-description = "derive macro implementation for mirrors crate"
+description = "Macros to extract product types and sum types information using reflection"
+
+[lib]
+proc-macro = true
 
 [profile.dev]
 opt-level = 0
@@ -14,6 +17,4 @@ opt-level = 0
 opt-level = 3
 
 [dependencies]
-proc-macro2 = "^1.0"
-quote = "^1.0"
-syn = { version = "^2.0", features = ["full", "extra-traits"] }
+mirrors_derive_internal = { path = "../derive_internal" }

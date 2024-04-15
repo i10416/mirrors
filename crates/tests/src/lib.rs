@@ -14,6 +14,6 @@ mod tests {
 
     #[test]
     fn test_field_names_with_rename() {
-        assert_eq!(Foo::field_names(), ["f0", "f1", "f_n", "type"])
+        assert_eq!(Foo::field_names(), ["f0", "f1", "f_n", "type"]);
     }
 }

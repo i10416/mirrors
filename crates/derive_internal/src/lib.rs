@@ -16,8 +16,8 @@ pub fn derive_field_names(input: proc_macro2::TokenStream) -> proc_macro2::Token
     }
     if errors.is_empty() {
         let expr = quote! {
-            impl #struct_name {
-                pub fn field_names() -> &'static [&'static str] {
+            impl  ::mirrors::FieldNames for #struct_name {
+                fn field_names() -> &'static [&'static str] {
                     &[#(#field_names),*]
                 }
             }
@@ -52,10 +52,13 @@ fn field_name(f: &Field) -> Result<String, syn::Error> {
                     expr => Err(syn::Error::new(expr.span(), "expected literal string")),
                 },
                 path => {
-                    let path_name = path
-                        .get_ident()
-                        .map(|id| id.to_string())
-                        .unwrap_or("empty attribute name is invalid".to_string());
+                    let path_name =
+                        path.get_ident()
+                            .map(|id| id.to_string())
+                            .ok_or(syn::Error::new(
+                                path.span(),
+                                "empty attribute argument name is invalid",
+                            ))?;
                     Err(syn::Error::new(
                         path.span(),
                         format!("Unexpected path for field_names attribute: {path_name:?}. Expected one of [`rename`]"),

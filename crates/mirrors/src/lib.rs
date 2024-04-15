@@ -1,6 +1,4 @@
 #![doc = include_str!("../../../README.md")]
-
-#[proc_macro_derive(FieldNames, attributes(field_names))]
 /// Derive `FieldNames` trait to extract struct field names as a slice.
 ///
 ///
@@ -18,6 +16,8 @@
 /// assert_eq!(Foo::field_names(),["f0","f1","f_n"])
 /// ```
 ///
-pub fn derive_field_names(input: proc_macro::TokenStream) -> proc_macro::TokenStream {
-    mirrors_internal::derive_field_names(input.into()).into()
+pub use mirrors_derive::FieldNames;
+
+pub trait FieldNames {
+    fn field_names() -> &'static [&'static str];
 }

@@ -1,12 +1,13 @@
 [workspace]
 members = [
     "crates/mirrors",
-    "crates/mirrors_internal",
+    "crates/derive",
+    "crates/derive_internal",
     "crates/tests"
 ]
 
 [workspace.package]
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 rust-version = "1.70"
 authors = ["i10416 contact.110416+mirrors@gmail.com"]

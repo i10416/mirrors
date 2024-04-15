@@ -4,14 +4,21 @@ version = 3
 
 [[package]]
 name = "mirrors"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
- "mirrors_internal",
+ "mirrors_derive",
 ]
 
 [[package]]
-name = "mirrors_internal"
-version = "0.1.0"
+name = "mirrors_derive"
+version = "0.1.1"
+dependencies = [
+ "mirrors_derive_internal",
+]
+
+[[package]]
+name = "mirrors_derive_internal"
+version = "0.1.1"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -49,7 +56,7 @@ dependencies = [
 
 [[package]]
 name = "tests"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "mirrors",
 ]
