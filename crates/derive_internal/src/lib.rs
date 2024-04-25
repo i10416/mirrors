@@ -5,6 +5,7 @@ pub fn derive_field_names(input: proc_macro2::TokenStream) -> proc_macro2::Token
     let item = syn::parse2::<syn::ItemStruct>(input).unwrap();
 
     let struct_name = item.ident;
+    let (impl_generics, type_generics, where_clause) = &item.generics.split_for_impl();
     let field_name_results = item.fields.iter().map(field_name).collect::<Vec<_>>();
     let mut field_names = vec![];
     let mut errors = vec![];
@@ -16,7 +17,7 @@ pub fn derive_field_names(input: proc_macro2::TokenStream) -> proc_macro2::Token
     }
     if errors.is_empty() {
         let expr = quote! {
-            impl  ::mirrors::FieldNames for #struct_name {
+            impl  #impl_generics ::mirrors::FieldNames for #struct_name #type_generics #where_clause {
                 fn field_names() -> &'static [&'static str] {
                     &[#(#field_names),*]
                 }
