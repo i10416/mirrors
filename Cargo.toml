@@ -5,6 +5,7 @@ members = [
     "crates/derive_internal",
     "crates/tests"
 ]
+resolver = "2"
 
 [workspace.package]
 version = "0.1.1"

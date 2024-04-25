@@ -10,11 +10,5 @@ description = "Macros to extract product types and sum types information using r
 [lib]
 proc-macro = true
 
-[profile.dev]
-opt-level = 0
-
-[profile.release]
-opt-level = 3
-
 [dependencies]
 mirrors_derive_internal = { path = "../derive_internal" }

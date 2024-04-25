@@ -10,12 +10,6 @@ description = "Trait to extract structural information from types"
 [lib]
 
 
-[profile.dev]
-opt-level = 0
-
-[profile.release]
-opt-level = 3
-
 [features]
 default = ["derive"]
 derive = ["dep:mirrors_derive"]

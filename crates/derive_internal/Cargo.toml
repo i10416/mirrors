@@ -7,12 +7,6 @@ authors.workspace = true
 license.workspace = true
 description = "derive macro implementation for mirrors crate"
 
-[profile.dev]
-opt-level = 0
-
-[profile.release]
-opt-level = 3
-
 [dependencies]
 proc-macro2 = "^1.0"
 quote = "^1.0"
